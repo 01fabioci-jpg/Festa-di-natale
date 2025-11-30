@@ -443,14 +443,26 @@
                         
                         <button type="submit" class="submit-btn">✓ CONFERMA!</button>
                     </form>
+                    
+                    <!-- CONTATORE PARTECIPANTI -->
+                    <div style="text-align: center; margin-top: 25px; padding: 15px; background: rgba(255,255,255,0.4); border-left: 4px solid #228B22;">
+                        <p style="font-family: 'Special Elite', monospace; color: #2c1810; font-size: 0.95rem; margin: 0;">
+                            🎉 Già <span style="font-size: 1.3rem; font-weight: bold; color: #8b0000;">0</span> adulti e <span style="font-size: 1.3rem; font-weight: bold; color: #8b0000;">0</span> bambini parteciperanno alla festa!
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Messaggio di conferma -->
                 <div id="success-section" class="success-box" style="display: none;">
                     <div class="checkmark">✅</div>
-                    <h2>Perfetto!</h2>
+                    <h2>Iscrizione Confermata!</h2>
                     <p>
-                        La tua partecipazione è stata registrata.<br><br>
+                        Grazie della tua adesione!<br>
+                        Ti confermiamo la corretta iscrizione.
+                    </p>
+                    <p id="frase-random" style="margin-top: 20px; font-style: italic; color: #5d3a1a; font-size: 1.05rem;">
+                    </p>
+                    <p style="margin-top: 25px;">
                         <strong>Vi aspettiamo il 21 Dicembre!</strong><br><br>
                         🎄🎅🎁
                     </p>
@@ -462,6 +474,25 @@
     </div>
 
     <script>
+        // Frasi di incoraggiamento random
+        const frasiIncoraggiamento = [
+            "🎤 Con questo form sarai inserito tra i partecipanti Big al prossimo Festival di Sanremo!",
+            "🚀 La NASA ha ricevuto la tua iscrizione e ti ha selezionato per la prossima missione su Marte!",
+            "👑 Complimenti! Sei stato nominato erede al trono d'Inghilterra!",
+            "🦸 I tuoi superpoteri sono stati attivati. Usali con saggezza!",
+            "🍕 Una pizzeria di Napoli ha intitolato una pizza in tuo onore!",
+            "🎬 Hollywood ha chiamato: vogliono te per il prossimo film di Natale!",
+            "🏆 Hai vinto il premio Nobel per la Partecipazione Entusiasta!",
+            "🦄 Un unicorno è stato assegnato alla tua famiglia. Arriverà via corriere!",
+            "🍎🐈 Complimenti! Hai vinto un pandoro stantìo Melegatti del '77 con lotteria per vincere una Fiat Uno!"
+        ];
+
+        function mostraFraseRandom() {
+            const fraseElement = document.getElementById('frase-random');
+            const fraseRandom = frasiIncoraggiamento[Math.floor(Math.random() * frasiIncoraggiamento.length)];
+            fraseElement.textContent = fraseRandom;
+        }
+
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
@@ -481,6 +512,7 @@
             showPage('partecipa');
             document.getElementById('form-section').style.display = 'none';
             document.getElementById('success-section').style.display = 'block';
+            mostraFraseRandom();
         }
     </script>
 </body>
