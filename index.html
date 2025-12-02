@@ -303,7 +303,7 @@
         
         <!-- PAGINA HOME -->
         <div id="home" class="page active">
-            <img src="volantino.jpg" alt="Festa di Natale - Wanted" class="poster-image">
+            <img src="volantino1.jpg" alt="Festa di Natale - Wanted" class="poster-image" id="poster-random">
             
             <div class="buttons-home">
                 <a href="#" class="btn btn-info" onclick="showPage('info'); return false;">📋 INFO</a>
@@ -447,7 +447,7 @@
                     <!-- CONTATORE PARTECIPANTI -->
                     <div style="text-align: center; margin-top: 25px; padding: 15px; background: rgba(255,255,255,0.4); border-left: 4px solid #228B22;">
                         <p style="font-family: 'Special Elite', monospace; color: #2c1810; font-size: 0.95rem; margin: 0;">
-                            🎉 Già <span style="font-size: 1.3rem; font-weight: bold; color: #8b0000;">8</span> adulti e <span style="font-size: 1.3rem; font-weight: bold; color: #8b0000;">5</span> bambini parteciperanno alla festa!
+                            🎉 Già <span style="font-size: 1.3rem; font-weight: bold; color: #8b0000;">4</span> adulti e <span style="font-size: 1.3rem; font-weight: bold; color: #8b0000;">2</span> bambini parteciperanno alla festa!
                         </p>
                     </div>
                 </div>
@@ -474,6 +474,20 @@
     </div>
 
     <script>
+        // Immagini random per la home
+        const volantini = [
+            "volantino1.jpg",
+            "volantino2.JPG",
+            "volantino3.JPG",
+            "volantino4.JPG",
+            "volantino5.JPG",
+            "volantino6.JPG"
+        ];
+        
+        // Seleziona volantino random all'apertura
+        const randomVolantino = volantini[Math.floor(Math.random() * volantini.length)];
+        document.getElementById('poster-random').src = randomVolantino;
+
         // Frasi di incoraggiamento random
         const frasiIncoraggiamento = [
             "🎤 Con questo form sarai inserito tra i partecipanti Big al prossimo Festival di Sanremo!",
