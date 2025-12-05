@@ -303,7 +303,7 @@
         
         <!-- PAGINA HOME -->
         <div id="home" class="page active">
-            <img src="volantino1.jpg" alt="Festa di Natale - Wanted" class="poster-image" id="poster-random">
+            <img src="volantino1.jpg" alt="Festa di Natale - Wanted" class="poster-image" id="poster-random" onclick="cambiaVolantino()" style="cursor: pointer;" title="Clicca per cambiare immagine!">
             
             <div class="buttons-home">
                 <a href="#" class="btn btn-info" onclick="showPage('info'); return false;">📋 INFO</a>
@@ -478,12 +478,26 @@
             "volantino3.JPG",
             "volantino4.JPG",
             "volantino5.JPG",
-            "volantino6.JPG"
+            "volantino6.JPG",
+            "Volantino7_jpeg.JPG",
+            "Volantino8_jpeg.JPG",
+            "Volantino9_jpeg.JPG",
+            "Volantino10_jpeg.JPG"
         ];
         
         // Seleziona volantino random all'apertura
         const randomVolantino = volantini[Math.floor(Math.random() * volantini.length)];
         document.getElementById('poster-random').src = randomVolantino;
+
+        // Cambia volantino al click
+        function cambiaVolantino() {
+            const currentSrc = document.getElementById('poster-random').src;
+            let newVolantino;
+            do {
+                newVolantino = volantini[Math.floor(Math.random() * volantini.length)];
+            } while (currentSrc.includes(newVolantino) && volantini.length > 1);
+            document.getElementById('poster-random').src = newVolantino;
+        }
 
         // Frasi di incoraggiamento random
         const frasiIncoraggiamento = [
